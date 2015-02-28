@@ -30,7 +30,27 @@ class Legislator(db.Model):
             'name': self.name,
             'county': self.county,
             'email': self.email,
+            'phone': self.phone,
             'district': self.district,
             'position': self.position,
             'party': self.party
+        }
+
+    def display_details(self):
+        return {
+            'name': self.name,
+            'county': self.county,
+            'email': self.email,
+            'phone': self.phone,
+            'district': self.district,
+            'position': self.position,
+            'party': self.party,
+            'tenure': self.tenure,
+            'current_assignments': self.current_assignments,
+            'address': {
+                'street': self.address_lines,
+                'city': self.city,
+                'state': self.state,
+                'zip': self.zip_code
+            }
         }

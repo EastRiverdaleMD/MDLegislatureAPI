@@ -29,6 +29,12 @@ def search_legislators():
     data = [person.display() for person in data]
     return jsonify({'legislators': data})
 
+@app.route('/api/legislator/<email>', methods=['GET'])
+def get_legislator(email):
+    person = Legislator.query.filter_by(email=email).first()
+    return jsonify(person.display_details())
+
+
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)

@@ -26,7 +26,7 @@ def load(db):
             l.position = legislator.get('position')
             l.current_assignments = legislator.get('current_assignments')
 
-            tenure = legislator.get('tenure')
+            tenure = legislator.get('Tenure')
             if tenure and len(tenure) > 0:
                 l.tenure = tenure[0]
 
@@ -39,7 +39,7 @@ def load(db):
                 l.address_lines = address.get('address_lines')
                 l.city = address.get('city')
                 l.state = address.get('state')
-                l.zip_code = address.get('zip_code')
+                l.zip_code = address.get('zip')
                 phone = address.get('phone_numbers')
                 if phone and len(phone) > 0:
                     l.phone = phone[0]
