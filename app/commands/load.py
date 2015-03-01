@@ -24,7 +24,7 @@ def load(db):
             l.county = legislator.get('county'),
             l.district = legislator.get('district')
             l.position = legislator.get('position')
-            l.current_assignments = legislator.get('current_assignments')
+            l.current_assignments = legislator.get('Current Assignments')
 
             tenure = legislator.get('Tenure')
             if tenure and len(tenure) > 0:

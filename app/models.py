@@ -54,3 +54,19 @@ class Legislator(db.Model):
                 'zip': self.zip_code
             }
         }
+
+    # Resources
+    @classmethod
+    def list(cls):
+        data = cls.query.order_by(cls.county, cls.position.desc()).all()
+        return [p.display() for p in data]
+
+    @classmethod
+    def search(cls, **kwargs):
+        return [p.display() for p in cls.query.filter_by(**kwargs)]
+
+    @classmethod
+    def details(cls, email):
+        person = Legislator.query.filter_by(email=email).all()
+        if len(person) > 0:
+            return person[0].display_details()
